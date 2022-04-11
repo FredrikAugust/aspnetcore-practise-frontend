@@ -1,7 +1,12 @@
-import React from "react";
+import { useAuth0 } from '@auth0/auth0-react';
+import Login from '../organisms/Login';
 
-const App: React.FC = () => {
-  return <p>Hello</p>;
-};
+export default function Frontpage() {
+  const { isAuthenticated, isLoading } = useAuth0();
 
-export default App;
+  if (isLoading) return <p>Loading...</p>;
+
+  if (isAuthenticated) return <p>Hello!</p>;
+
+  return <Login />;
+}
