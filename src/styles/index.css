@@ -17,7 +17,8 @@
         @apply text-blue-600 underline;
     }
 
-    button[type="button"] {
+    button[type="button"],
+    button[type="submit"] {
         @apply px-2 transition border-2 border-black hover:border-black hover:bg-black hover:text-white;
     }
 }

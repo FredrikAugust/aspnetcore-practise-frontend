@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import useRoles from './useRoles';
 
-export default function useRoleGuard(
+export default function useAuthorizedPage(
   { oneOf = [], allOf = [] }: { oneOf?: string[], allOf?: string[] },
 ): void {
   const { isLoading, roles } = useRoles();

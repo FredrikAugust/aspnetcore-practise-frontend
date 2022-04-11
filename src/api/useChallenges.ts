@@ -8,9 +8,10 @@ export type Challenge = {
 }
 
 export default function useChallenges() {
-  const { get } = useAxios();
+  const { get, post } = useAxios();
 
   return {
     getChallenges: () => get<Challenge[]>('Challenges'),
+    createChallenge: (challenge: Challenge) => post<Challenge>('Challenges', challenge),
   };
 }

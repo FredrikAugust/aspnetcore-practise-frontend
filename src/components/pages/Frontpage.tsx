@@ -1,5 +1,6 @@
+import AuthorizedView from '../organisms/AuthorizedView';
 import Challenges from '../organisms/Challenges';
-import RoleRestrictedView from '../organisms/RoleRestrictedView';
+import CreateChallenge from '../organisms/CreateChallenge';
 
 export default function Frontpage() {
   return (
@@ -7,9 +8,11 @@ export default function Frontpage() {
       <h1>home</h1>
       <p>this is my home page</p>
 
-      <RoleRestrictedView oneOf={['Administrator']}>
-        <Challenges />
-      </RoleRestrictedView>
+      <AuthorizedView oneOf={['Administrator']}>
+        <CreateChallenge />
+      </AuthorizedView>
+
+      <Challenges />
     </>
   );
 }

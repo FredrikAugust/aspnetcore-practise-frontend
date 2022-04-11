@@ -2,7 +2,7 @@ import { FC, ReactElement } from 'react';
 import useRoles from '../../hooks/useRoles';
 
 // eslint-disable-next-line react/function-component-definition
-const RoleRestrictedView: FC<{ oneOf?: string[], allOf?: string[], children: ReactElement }> = (
+const AuthorizedView: FC<{ oneOf?: string[], allOf?: string[], children: ReactElement }> = (
   { oneOf = [], allOf = [], children },
 ) => {
   const { isLoading, roles } = useRoles();
@@ -19,4 +19,4 @@ const RoleRestrictedView: FC<{ oneOf?: string[], allOf?: string[], children: Rea
   return null;
 };
 
-export default RoleRestrictedView;
+export default AuthorizedView;
