@@ -9,8 +9,11 @@
   },
   "dependencies": {
     "@auth0/auth0-react": "^1.9.0",
+    "axios": "^0.26.1",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "react-query": "^3.34.19",
+    "react-router-dom": "^6.3.0"
   },
   "devDependencies": {
     "@types/react": "^17.0.33",

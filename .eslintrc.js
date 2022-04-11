@@ -23,6 +23,8 @@ module.exports = {
   rules: {
     'react/jsx-filename-extension': [1, { extensions: ['.tsx', '.ts'] }],
     'react/react-in-jsx-scope': 'off',
+    'react/require-default-props': 'off',
+    'react/prop-types': 'off',
     'import/extensions': [
       'error',
       'ignorePackages',

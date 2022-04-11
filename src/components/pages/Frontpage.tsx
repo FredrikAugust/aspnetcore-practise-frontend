@@ -1,12 +1,15 @@
-import { useAuth0 } from '@auth0/auth0-react';
-import Login from '../organisms/Login';
+import Challenges from '../organisms/Challenges';
+import RoleRestrictedView from '../organisms/RoleRestrictedView';
 
 export default function Frontpage() {
-  const { isAuthenticated, isLoading } = useAuth0();
+  return (
+    <>
+      <h1>home</h1>
+      <p>this is my home page</p>
 
-  if (isLoading) return <p>Loading...</p>;
-
-  if (isAuthenticated) return <p>Hello!</p>;
-
-  return <Login />;
+      <RoleRestrictedView oneOf={['Administrator']}>
+        <Challenges />
+      </RoleRestrictedView>
+    </>
+  );
 }

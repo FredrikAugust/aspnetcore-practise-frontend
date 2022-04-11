@@ -4,6 +4,9 @@ export default function Login() {
   const { loginWithRedirect } = useAuth0();
 
   return (
-    <button type="button" onClick={loginWithRedirect}>Login</button>
+    <section className="p-4">
+      <h1>sign in</h1>
+      <button type="button" onClick={loginWithRedirect}>login</button>
+    </section>
   );
 }
