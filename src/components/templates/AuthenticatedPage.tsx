@@ -11,7 +11,7 @@ export default function AuthenticatedPage() {
           <Link to="/">
             alveland
           </Link>
-          <button onClick={() => logout({ returnTo: window.location.origin })} type="button">sign out</button>
+          <button onClick={() => logout({ returnTo: window.location.origin })} type="button">logg ut</button>
         </nav>
       </header>
       <main className="px-4"><Outlet /></main>

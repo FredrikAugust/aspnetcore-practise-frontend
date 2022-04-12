@@ -11,15 +11,18 @@ export default function Challenges() {
 
   return (
     <section>
-      <h2>challenges</h2>
-      {data
-        ?.data
-        .map((challenge: Challenge) => (
-          <ChallengeView
-            challenge={challenge}
-            key={challenge.challengeId}
-          />
-        ))}
+      <h2 className="mb-2">oppgaver</h2>
+
+      <div className="flex gap-8 overflow-x-auto">
+        {data
+          ?.data
+          .map((challenge: Challenge) => (
+            <ChallengeView
+              challenge={challenge}
+              key={challenge.challengeId}
+            />
+          ))}
+      </div>
     </section>
   );
 }

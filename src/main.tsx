@@ -4,11 +4,17 @@ import ReactDOM from 'react-dom';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { BrowserRouter } from 'react-router-dom';
 
-import Routes from './components/pages/Routes';
+import Routes from './components/pages/_Routes';
 
 import './styles/index.css';
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 1000 * 60 * 5, // 5 minutes
+    },
+  },
+});
 
 ReactDOM.render(
   <React.StrictMode>
