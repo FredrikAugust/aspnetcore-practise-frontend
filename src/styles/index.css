@@ -21,6 +21,12 @@
     button[type="submit"] {
         @apply px-2 transition border-2 border-black hover:border-black hover:bg-black hover:text-white;
     }
+
+    input[type="text"],
+    textarea,
+    input[type="number"] {
+        @apply px-2 border-2 border-black;
+    }
 }
 
 @tailwind components;

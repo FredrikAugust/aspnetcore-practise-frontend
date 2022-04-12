@@ -1,8 +1,8 @@
-import { Auth0Provider } from '@auth0/auth0-react';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { BrowserRouter } from 'react-router-dom';
+import Auth0ProviderWithHistory from './components/molecules/Auth0ProviderWithHistory';
 
 import Routes from './components/pages/_Routes';
 
@@ -19,16 +19,11 @@ const queryClient = new QueryClient({
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <Auth0Provider
-        domain="alveland.eu.auth0.com"
-        audience="https://alveland-dev.no"
-        clientId="BVxvKKnw3CSm3KdTsm23j3EiTM8xXK61"
-        redirectUri={window.location.origin}
-      >
+      <Auth0ProviderWithHistory>
         <QueryClientProvider client={queryClient}>
           <Routes />
         </QueryClientProvider>
-      </Auth0Provider>
+      </Auth0ProviderWithHistory>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root'),

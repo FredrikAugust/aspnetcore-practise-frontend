@@ -1,5 +1,6 @@
 import { useQuery } from 'react-query';
 import { Link, useParams } from 'react-router-dom';
+import AnswerInput from '../molecules/AnswerInput';
 import useChallenges from '../../api/useChallenges';
 
 export default function ChallengePage() {
@@ -19,26 +20,40 @@ export default function ChallengePage() {
         </div>
         <div>
           <p>
-            {data?.data.points}
+            {data?.data.challenge.points}
             {' '}
             poeng
           </p>
-          <h1>{data?.data.name}</h1>
+          <h1>{data?.data.challenge.name}</h1>
         </div>
       </div>
 
       <p className="max-w-lg mb-8">
-        {data?.data.description}
+        {data?.data.challenge.description}
       </p>
 
-      {data?.data.attachments.length !== 0 && <h3 className="mb-2">vedlegg</h3>}
-      <div className="flex gap-4">
-        {data?.data.attachments.map((attachment) => (
-          <a rel="noreferrer" target="_blank" className="px-2 py-1 text-white no-underline transition bg-black border-2 border-black hover:text-black hover:bg-white" download="download" href={attachment.url} key={attachment.challengeAttachmentId}>
+      {data?.data.challenge.attachments.length !== 0 && <h3 className="mb-1">vedlegg</h3>}
+      <div className="flex gap-4 mb-12">
+        {data?.data.challenge.attachments.map((attachment) => (
+          <a rel="noreferrer" target="_blank" className="px-2 text-white no-underline transition bg-black border-2 border-black hover:text-black hover:bg-white" download="download" href={attachment.url} key={attachment.challengeAttachmentId}>
             {attachment.name}
           </a>
         ))}
       </div>
+
+      {data?.data.solved ? (
+        <div>
+          <p className="bg-green-300 inline-block">
+            riktig!
+          </p>
+          <p>
+            svaret var
+            {' '}
+            <code>{data?.data.answer?.value}</code>
+            .
+          </p>
+        </div>
+      ) : (<AnswerInput id={id!} />)}
     </section>
   );
 }

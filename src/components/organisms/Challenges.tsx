@@ -1,5 +1,5 @@
 import { useQuery } from 'react-query';
-import useChallenges, { Challenge } from '../../api/useChallenges';
+import useChallenges from '../../api/useChallenges';
 import ChallengeView from '../molecules/Challenge';
 
 export default function Challenges() {
@@ -16,10 +16,10 @@ export default function Challenges() {
       <div className="flex gap-8 overflow-x-auto">
         {data
           ?.data
-          .map((challenge: Challenge) => (
+          .map((details) => (
             <ChallengeView
-              challenge={challenge}
-              key={challenge.challengeId}
+              details={details}
+              key={details.challenge.challengeId}
             />
           ))}
       </div>

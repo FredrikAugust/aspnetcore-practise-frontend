@@ -19,6 +19,7 @@ export default function CreateChallenge() {
       description: data.description as string,
       name: data.name as string,
       points: Number(data.points),
+      answer: data.answer as string,
     });
   };
 
@@ -41,6 +42,11 @@ export default function CreateChallenge() {
       <label htmlFor="points" className="block">
         <span className="text-gray-700">points</span>
         <input type="number" className="block" id="points" {...register('points')} />
+      </label>
+
+      <label htmlFor="answer" className="block">
+        <span className="text-gray-700">svar</span>
+        <input type="text" className="block" id="answer" {...register('answer')} />
       </label>
 
       <button type="submit">lag</button>
