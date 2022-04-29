@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { BrowserRouter } from 'react-router-dom';
-import Auth0ProviderWithHistory from './components/molecules/Auth0ProviderWithHistory';
 
 import Routes from './components/pages/_Routes';
 
@@ -19,11 +18,9 @@ const queryClient = new QueryClient({
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <Auth0ProviderWithHistory>
-        <QueryClientProvider client={queryClient}>
-          <Routes />
-        </QueryClientProvider>
-      </Auth0ProviderWithHistory>
+      <QueryClientProvider client={queryClient}>
+        <Routes />
+      </QueryClientProvider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root'),

@@ -1,5 +1,5 @@
 {
-  "name": "forager",
+  "name": "bibliotek",
   "private": true,
   "version": "0.0.0",
   "scripts": {
@@ -8,7 +8,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@auth0/auth0-react": "^1.9.0",
     "axios": "^0.26.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",

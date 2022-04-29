@@ -1,9 +1,6 @@
-import { useAuth0 } from '@auth0/auth0-react';
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 
 export default function useAxios() {
-  const { getAccessTokenSilently } = useAuth0();
-
   axios.interceptors.request.use(async (config: AxiosRequestConfig) => {
     const mutatedConfig = config;
 
@@ -11,9 +8,13 @@ export default function useAxios() {
       mutatedConfig.url = `${import.meta.env.VITE_API_URL}${mutatedConfig.url}`;
     }
 
-    if (mutatedConfig.headers?.Authorization === undefined) {
-      mutatedConfig.headers!.Authorization = `Bearer ${await getAccessTokenSilently()}`;
+    if (mutatedConfig.headers?.['Content-Type'] === undefined) {
+      mutatedConfig.headers!['Content-Type'] = 'application/json';
     }
+
+    // if (mutatedConfig.headers?.Authorization === undefined) {
+    //   mutatedConfig.headers!.Authorization = `Bearer ${await getAccessTokenSilently()}`;
+    // }
 
     return mutatedConfig;
   });
